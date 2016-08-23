@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build":"docker build -t fabianmoronzirfas/docker-poc",
+    "build":"docker build -t fabianmoronzirfas/docker-poc .",
     "docker":"docker run -p 61428:8080 -u \"app\" -e \"NODE_ENV=production\" -m \"300M\" --memory-swap \"1G\" -d fabianmoronzirfas/docker-poc"
   },
   "keywords": [],
