@@ -1,0 +1,27 @@
+body {
+  background-color: #242424;
+  font-family: monospace;
+  color: #C8C8C8;
+  height: 100%;
+}
+.main {
+    // width:100vw;
+    // height:100vh;
+    // display: flex;
+    // text-align:center;
+    // align-items: center;
+    // justify-content: center;
+
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
