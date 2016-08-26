@@ -26,7 +26,7 @@
     "remove":"docker stop $(docker ps -a -q) && docker rm --force `docker ps -qa` && docker rmi fabianmoronzirfas/docker-poc || docker rmi fabianmoronzirfas/docker-poc-browserify || echo 'no images with these names'"
 
   },
-  "keywords": [],
+  "keywords": ["docker","browserify","node"],
   "author": "Fabian 'fabiantheblind' Morón Zirfas <fabian.moron.zirfas@gmail.com> (http://fabianmoronzirfas.me)",
   "license": "MIT",
   "dependencies": {
