@@ -29,8 +29,6 @@ npm run docker:simple
 # docker ps
 # to see the output run
 docker logs [CONTAINER ID]
-
-# see the package.json scripts how they are used in this project
 ```
 
 open: [localhost:61428](http://localhost:61428) to see the express app.  
@@ -108,6 +106,8 @@ docker build -t [USER]/[FANCY NAME] -f My-Special-Dockerfile-name ./
 # To start a container in detached mode, you use -d=true or just -d option. By design, containers started in detached mode exit when the root process used to run the container exits. A container in detached mode cannot be automatically removed when it stops, this means you cannot use the --rm option with -d option.
 #
 docker run -p 61428:8080 -u "app" -e "NODE_ENV=production" -m "300M" --memory-swap "1G" -d user/fancy-name
+
+# see the package.json scripts how they are used in this project
 ```
 
 
