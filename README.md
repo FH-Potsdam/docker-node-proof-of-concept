@@ -22,7 +22,7 @@ You need Docker installed to use this. Luckily there is a App for Windows & macO
 #
 # start docker app
 # then run:  
-git clone https://github.com/FH-Potsdam/docker-proof-of-concept-in-interface.fh-potsdam.de.git ./docker-poc/
+git clone https://github.com/FH-Potsdam/docker-node-proof-of-concept.git ./docker-poc/
 cd docker-poc/
 npm run docker:simple
 # to get the ID of the container run
