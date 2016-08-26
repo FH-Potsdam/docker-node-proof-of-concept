@@ -19,6 +19,8 @@ COPY public /usr/src/app/public
 # install all needed modules
 # if your dependencies are large this will create a large container
 # to keep this smaller take a look at Dockerfile.browserify
+# If you have native dependencies, you'll need extra tools
+# RUN apk add --no-cache make gcc g++ python
 RUN npm install --production
 # the port the app uses
 # will be mapped to the port set by the runner command
