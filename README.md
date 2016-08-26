@@ -37,6 +37,7 @@ it will:
 
 - build the basic image
 - bundle the js files into a single bundle.js file using browserify
+- remove the node_modules folder
 - execute the container defined in `Dockerfile.browserify`
 
 Note: There might be problems with native modules. If so fall back to the simple build.  
