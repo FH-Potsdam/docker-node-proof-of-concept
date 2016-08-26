@@ -5,11 +5,11 @@ This is just for learning a bit about docker. There might be 🐜🐛🐞🕷�
 
 __Makes use of:__  
 
-![](http://dockeri.co/image/mhart/alpine-node)  
+[![](http://dockeri.co/image/mhart/alpine-node)](https://hub.docker.com/r/mhart/alpine-node/)  
 
 __License:__  
 
-[![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)]()
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](https://fabiantheblind.mit-license.org/)
 
 ----
 
