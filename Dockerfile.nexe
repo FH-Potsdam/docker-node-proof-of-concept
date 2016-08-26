@@ -6,11 +6,10 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 # the production flag should also be set by the ENV command
 # if we want a image that is as small as possible it is
-
 COPY package.json /usr/src/app/
-RUN npm install --production
 COPY index.js /usr/src/app
 COPY public /usr/src/app/public
+RUN npm install && npm run nexe && rm -rf node_modules && npm -rf tmp
 EXPOSE 8080
 USER app
-CMD [ "node", "index.js" ]
+CMD [ "/usr/src/app/executable" ]

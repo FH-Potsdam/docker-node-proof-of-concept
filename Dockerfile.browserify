@@ -1,0 +1,25 @@
+# get the latest small image
+FROM  mhart/alpine-node:latest
+# add a group for execution
+RUN addgroup -S app && adduser -S -g app app
+# Create app directory
+RUN mkdir -p /usr/src/app
+# set it as working directory
+WORKDIR /usr/src/app
+# copy the needed files
+# array only needed for paths with whitespaces
+# last item in array is the destination
+COPY ["package.json", "index.js", "public", "/usr/src/app/"]
+# run the bundling and clean up after wards
+# NOTE: the cleaning needs to be in the same command
+# as the installation
+# having it in another line will create a layer and increase
+# the size of the image
+RUN npm install && npm run bundle && rm -r node_modules
+# the port the app is listening to
+EXPOSE 8080
+# the user that executes the app
+USER app
+# the command to call
+CMD [ "node", "bundle.js" ]
+
