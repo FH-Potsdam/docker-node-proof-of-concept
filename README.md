@@ -1,6 +1,17 @@
-# Docker Proof of Concept on interface.fh-potsdam.de
+# Docker Node.js Proof of Concept
 
-Proof of Concept on how build a docker container for the interface.fh-potsdam.de server
+Proof of concept on how build a docker container for Node.js apps.  
+This is just for learning a bit about docker. There might be 🐜🐛🐞🕷🐝 and 🐲🐉🀄.  
+
+__Makes use of:__  
+
+![](http://dockeri.co/image/mhart/alpine-node)  
+
+__License:__  
+
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)]()
+
+----
 
 You need Docker installed to use this. Luckily there is a App for Windows & macOS. Get it at [docker.com](https://www.docker.com/). You also should install [Kitematic](https://kitematic.com/) for easier acces to your running containers.  
 
@@ -17,7 +28,9 @@ npm run docker:simple
 # to get the ID of the container run
 # docker ps
 # to see the output run
-# docker logs [CONTAINER ID]
+docker logs [CONTAINER ID]
+
+# see the package.json scripts how they are used in this project
 ```
 
 open: [localhost:61428](http://localhost:61428) to see the express app.  
@@ -56,6 +69,48 @@ npm run remove
 
 Use this as a boilerplate to build node apps that run on the server.
 
+## Useful Docker commands
+
+```bash
+# list all images
+docker images
+# list all containers
+docker ps
+# remove a container
+docker rm [CONTAINER ID or TAG]
+# reomve an image
+docker rmi [IMAGE ID OR TAG]
+# stop all running containers
+docker stop $(docker ps -a -q)
+#
+# see what your app is logging
+docker logs [CONTAINER ID]
+
+# build from docker file not called Dockerfile
+# -t is the tag -f is the filename
+#
+#  the last argument is the working directory root
+docker build -t [USER]/[FANCY NAME] -f My-Special-Dockerfile-name ./
+#
+# run a container with some useful settings
+# 
+# -p is the port to map first is the actual port second the port the node app uses
+# 
+# -e sets some environment variables
+# 
+# -m the max memory 
+# Memory limit (format: <number>[<unit>]). Number is a positive integer. Unit can be one of b, k, m, or g. Minimum is 4M.
+# 
+# --memory-swap
+# Total memory limit (memory + swap, format: <number>[<unit>]). Number is a positive integer. Unit can be one of b, k, m, or g.
+# 
+# -d sets detached mode
+# To start a container in detached mode, you use -d=true or just -d option. By design, containers started in detached mode exit when the root process used to run the container exits. A container in detached mode cannot be automatically removed when it stops, this means you cannot use the --rm option with -d option.
+#
+docker run -p 61428:8080 -u "app" -e "NODE_ENV=production" -m "300M" --memory-swap "1G" -d user/fancy-name
+```
+
+
 ## Recommended Readings
 
 - [Dockerfile reference](https://docs.docker.com/engine/reference/builder/)
@@ -68,7 +123,8 @@ Use this as a boilerplate to build node apps that run on the server.
 - [Issues · docker/docker-bench-security · GitHub](https://github.com/docker/docker-bench-security/issues)
 
 
-__nexe__
+__nexe (Not working yet)__
+
 
 - [Docker for Mac: standard_init_linux.go:175: exec user process caused "exec format error" · Issue #23865 · docker/docker · GitHub](https://github.com/docker/docker/issues/23865)
 - [deployment - How do I deploy Node.js applications as a single executable file? - Stack Overflow](http://stackoverflow.com/questions/14314038/how-do-i-deploy-node-js-applications-as-a-single-executable-file)
