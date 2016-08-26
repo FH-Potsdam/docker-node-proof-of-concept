@@ -1,15 +1,19 @@
+# get a small node image
 FROM  mhart/alpine-node:latest
+# add a group for execution
 RUN addgroup -S app && adduser -S -g app app
+# set the node env. so we only install dependencies not devDependencies
 ENV NODE_ENV=production
 # Create app directory
 RUN mkdir -p /usr/src/app
+# set the working directoy
 WORKDIR /usr/src/app
-# the production flag should also be set by the ENV command
 # if we want a image that is as small as possible it is
 COPY package.json /usr/src/app/
 COPY index.js /usr/src/app
+# the production flag should also be set by the ENV command
 COPY public /usr/src/app/public
-RUN npm install && npm run nexe && rm -rf node_modules && npm -rf tmp
+RUN npm install -- production && npm run nexe && rm -rf node_modules && npm -rf tmp
 EXPOSE 8080
 USER app
 CMD [ "/usr/src/app/executable" ]
