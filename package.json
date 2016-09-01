@@ -5,28 +5,26 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "docker:nexe":"echo 'this is not working yet'",
-
-    "docker:simple":"npm run build:simple && npm run execute:simple",
-
-    "docker:browserify":"npm run build:browserify && npm run execute:browserify",
-
-
+    "docker:nexe": "echo 'this is not working yet'",
+    "docker:simple": "npm run build:simple && npm run execute:simple",
+    "docker:browserify": "npm run build:browserify && npm run execute:browserify",
     "build:browserify": "docker build -t fabianmoronzirfas/docker-poc-browserify -f Dockerfile.browserify .",
     "execute:browserify": "docker run -p 61428:8080 -u \"app\" -e \"NODE_ENV=production\" -m \"300M\" --memory-swap \"1G\" -d fabianmoronzirfas/docker-poc-browserify",
-
-
     "build:simple": "docker build -t fabianmoronzirfas/docker-poc .",
     "execute:simple": "docker run -p 61428:8080 -u \"app\" -e \"NODE_ENV=production\" -m \"300M\" --memory-swap \"1G\" -d fabianmoronzirfas/docker-poc",
-
     "bundle": "browserify --bare index.js > bundle.js ",
-    "nexe":"./node_modules/.bin/nexe -i index.js -o executable",
-    "cleanup:containers":"docker rm $(docker ps -a -q)",
-    "cleanup:images":"docker rmi $(docker images -f \"dangling=true\" -q)",
-    "remove":"docker stop $(docker ps -a -q) && docker rm --force `docker ps -qa` && docker rmi fabianmoronzirfas/docker-poc || docker rmi fabianmoronzirfas/docker-poc-browserify || echo 'no images with these names'"
-
+    "nexe": "./node_modules/.bin/nexe -i index.js -o executable",
+    "cleanup:containers": "docker rm $(docker ps -a -q)",
+    "cleanup:images": "docker rmi $(docker images -f \"dangling=true\" -q)",
+    "remove": "docker stop $(docker ps -a -q) && docker rm --force `docker ps -qa` && docker rmi fabianmoronzirfas/docker-poc || docker rmi fabianmoronzirfas/docker-poc-browserify || echo 'no images with these names'",
+    "lint:simple":"./node_modules/.bin/dockerfilelint Dockerfile",
+    "lint:browserify":"./node_modules/.bin/dockerfilelint Dockerfile.browserify"
   },
-  "keywords": ["docker","browserify","node"],
+  "keywords": [
+    "docker",
+    "browserify",
+    "node"
+  ],
   "author": "Fabian 'fabiantheblind' Morón Zirfas <fabian.moron.zirfas@gmail.com> (http://fabianmoronzirfas.me)",
   "license": "MIT",
   "dependencies": {
@@ -34,6 +32,7 @@
   },
   "devDependencies": {
     "browserify": "^13.1.0",
+    "dockerfilelint": "^1.1.2",
     "nexe": "^1.1.2"
   }
 }
