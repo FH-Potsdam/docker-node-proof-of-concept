@@ -117,6 +117,7 @@ docker run -p 61428:8080 -u "app" -e "NODE_ENV=production" -m "300M" --memory-sw
 - [Dockerizing a Node.js web app Node.js](https://nodejs.org/en/docs/guides/nodejs-docker-webapp/)
 - [Best practices for writing Dockerfiles](https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/)
 - [Best Practices for Non-root User · Issue #48 · mhart/alpine-node · GitHub](https://github.com/mhart/alpine-node/issues/48)
+- [Getting Started with Docker Scotch](https://scotch.io/tutorials/getting-started-with-docker)
 - [option to not install devDependencies · Issue #1434 · npm/npm · GitHub](https://github.com/npm/npm/issues/1434)
 - [docker-node/BestPractices.md at master · nodejs/docker-node · GitHub](https://github.com/nodejs/docker-node/blob/master/docs/BestPractices.md)
 - [odino.org || Docker run your Nodejs App in 24mb of an Image](http://odino.org/minimal-docker-run-your-nodejs-app-in-25mb-of-an-image/)
